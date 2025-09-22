@@ -1,0 +1,34 @@
+<div class="product-card">
+  <div class="product-image">
+    <img [src]="product.imageUrl" [alt]="product.name">
+    <div class="wishlist-icon">
+      <i class="pi pi-heart"></i>
+    </div>
+    <div class="discount-badge" *ngIf="product.discount">
+      {{product.discount}}% OFF
+    </div>
+  </div>
+  <div class="product-details">
+    <h3 class="product-title">{{product.name}}</h3>
+    <div class="product-brand" *ngIf="product.brand">{{product.brand}}</div>
+    <div class="product-rating">
+      <span class="pi pi-star-fill"></span>
+      {{product.rating | number:'1.1-1'}}
+    </div>
+    <div class="product-price">
+      <span class="current-price">
+        {{discountPrice ? (discountPrice | currency:'INR') : (product.price | currency:'INR')}}
+      </span>
+      <span class="original-price" *ngIf="discountPrice">
+        {{product.price | currency:'INR'}}
+      </span>
+    </div>
+    <button 
+      class="add-to-cart-btn" 
+      (click)="onAddToCart()"
+      [disabled]="product.stock === 0"
+    >
+      {{product.stock === 0 ? 'Out of Stock' : 'Add to Cart'}}
+    </button>
+  </div>
+</div>

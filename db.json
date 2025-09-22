@@ -1,0 +1,177 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "admin123",
+      "role": "Admin",
+      "name": "Alice"
+    },
+    {
+      "id": "2",
+      "username": "manager",
+      "password": "manager123",
+      "role": "Manager",
+      "name": "Bob"
+    },
+    {
+      "id": "3",
+      "username": "customer",
+      "password": "customer123",
+      "role": "Customer",
+      "name": "Charlie"
+    },
+    {
+      "id": "4",
+      "username": "auditor",
+      "password": "auditor123",
+      "role": "Auditor",
+      "name": "Dave"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Smartphone",
+      "description": "Latest smartphone with advanced features",
+      "price": 599.99,
+      "stock": 50,
+      "category": "Electronics",
+      "imageUrl": "https://via.placeholder.com/150"
+    },
+    {
+      "id": "2",
+      "name": "Laptop",
+      "description": "High-performance laptop for work and play",
+      "price": 999.99,
+      "stock": 30,
+      "category": "Electronics",
+      "imageUrl": "https://via.placeholder.com/150"
+    },
+    {
+      "id": "3",
+      "name": "T-Shirt",
+      "description": "Comfortable cotton t-shirt",
+      "price": 19.99,
+      "stock": 100,
+      "category": "Fashion",
+      "imageUrl": "https://via.placeholder.com/150"
+    },
+    {
+      "name": "Microwave",
+      "description": "Compact microwave oven",
+      "price": 149.99,
+      "stock": 20,
+      "category": "Home & Kitchen",
+      "brand": "",
+      "imageUrl": "https://via.placeholder.com/150",
+      "rating": 0,
+      "discount": "1",
+      "id": "4"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Electronics"
+    },
+    {
+      "id": "2",
+      "name": "Fashion"
+    },
+    {
+      "id": "3",
+      "name": "Home & Kitchen"
+    },
+    {
+      "id": "4",
+      "name": "Books"
+    },
+    {
+      "id": "5",
+      "name": "Toys"
+    }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "userId": "3",
+      "productIds": [
+        "1",
+        "3"
+      ],
+      "totalAmount": 619.98,
+      "status": "Delivered",
+      "orderDate": "2024-07-20"
+    },
+    {
+      "id": "2",
+      "userId": "3",
+      "productIds": [
+        "2"
+      ],
+      "totalAmount": 999.99,
+      "status": "Pending",
+      "orderDate": "2024-08-01"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "1",
+      "productId": "1",
+      "userId": "3",
+      "rating": 4,
+      "comment": "Great phone!",
+      "reviewDate": "2024-07-21"
+    },
+    {
+      "id": "2",
+      "productId": "3",
+      "userId": "3",
+      "rating": 5,
+      "comment": "Nice and comfy",
+      "reviewDate": "2024-07-21"
+    }
+  ],
+  "addresses": [
+    {
+      "id": "1",
+      "userId": "3",
+      "name": "Charlie",
+      "phone": "9876543210",
+      "addressLine1": "123 Main Street",
+      "addressLine2": "Apt 4B",
+      "city": "New York",
+      "state": "NY",
+      "country": "USA",
+      "postalCode": "10001",
+      "isDefault": true
+    },
+    {
+      "id": "2",
+      "userId": "3",
+      "name": "Charlie Home",
+      "phone": "9876543211",
+      "addressLine1": "456 Oak Ave",
+      "addressLine2": "",
+      "city": "Los Angeles",
+      "state": "CA",
+      "country": "USA",
+      "postalCode": "90001",
+      "isDefault": false
+    },
+    {
+      "id": "3",
+      "userId": "1",
+      "name": "Alice Admin",
+      "phone": "9999999999",
+      "addressLine1": "1 Admin Lane",
+      "addressLine2": "Suite 10",
+      "city": "San Francisco",
+      "state": "CA",
+      "country": "USA",
+      "postalCode": "94101",
+      "isDefault": true
+    }
+  ]
+}

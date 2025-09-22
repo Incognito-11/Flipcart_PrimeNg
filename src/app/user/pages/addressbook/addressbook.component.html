@@ -1,0 +1,45 @@
+<div class="address-book-container">
+  <h2>User Address Book</h2>
+
+  <form [formGroup]="addressForm" (ngSubmit)="onSubmit()" class="address-form">
+    <div class="form-grid">
+      <input type="text" pInputText formControlName="fullName" placeholder="Full Name" />
+      <input type="text" pInputText formControlName="phoneNumber" placeholder="Phone Number" />
+      <input type="text" pInputText formControlName="pincode" placeholder="Pincode" />
+      <input type="text" pInputText formControlName="city" placeholder="City" />
+      <input type="text" pInputText formControlName="state" placeholder="State" />
+
+      <p-dropdown formControlName="addressType"
+        [options]="[{ label: 'Home', value: 'Home' }, { label: 'Work', value: 'Work' }]"
+        placeholder="Select Address Type"></p-dropdown>
+
+      <div class="checkbox">
+        <p-checkbox formControlName="isDefault" binary="true" label="Set as Default"></p-checkbox>
+      </div>
+    </div>
+
+    <button pButton type="submit" label="Add Address" [disabled]="addressForm.invalid"></button>
+  </form>
+
+  <p-message></p-message>
+
+  <div *ngIf="addresses.length > 0" class="address-list">
+    <div *ngFor="let address of addresses" class="address-card">
+      <p><strong>{{ address.fullName }}</strong> ({{ address.addressType }})</p>
+      <p>{{ address.phoneNumber }}</p>
+      <p>{{ address.city }}, {{ address.state }} - {{ address.pincode }}</p>
+
+      <button pButton icon="pi pi-check" label="Set Default" class="p-button-sm p-button-text"
+        (click)="setDefaultAddress(address.id!)" [disabled]="address.default"></button>
+
+      <button pButton icon="pi pi-trash" label="Delete" class="p-button-sm p-button-danger"
+        (click)="deleteAddress(address.id!)"></button>
+
+      <p *ngIf="address.default" class="default-label">Default</p>
+    </div>
+  </div>
+
+  <div *ngIf="addresses.length === 0">
+    <p>No addresses found.</p>
+  </div>
+</div>

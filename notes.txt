@@ -1,0 +1,123 @@
+PrimeNg version for this Project
+
+// npm install primeng@15.2.0 primeicons@6.0.1 primeflex@3.3.1
+
+go to angular.json file and in styles
+ 
+ "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+  "node_modules/primeng/resources/primeng.min.css",
+  "node_modules/primeicons/primeicons.css",
+  "node_modules/primeflex/primeflex.css",
+  "src/styles.scss"
+
+
+Create a complete Angular 15 project suitable for a 4+ years experienced candidate. The project should be based on the Census of India and must use the following technologies:
+
+
+
+D3.js and Chart.js (Pie Chart, Bar Chart, Line Chart in a single component) for real-time data analysis.
+
+
+
+Standalone Angular components with a modular structure.
+
+
+
+PrimeNG for UI components, notifications, and data display.
+
+
+
+SCSS for styling.
+
+
+
+JSON-server as the backend data source.
+
+
+
+📌 Project Features:
+
+
+
+Two roles:
+
+
+
+Admin: Can view all states' census data in charts with real-time updates, apply state filters, and monitor statistics.
+
+
+
+User: Can add, delete, modify, and update census data for states (with dropdown for state selection).
+
+
+
+Census Data Fields:
+
+
+
+Total Population
+
+
+
+Male population
+
+
+
+Female population
+
+
+
+Literacy rate (%)
+
+also include percentage of Males and females of total population, if any this change in this the automatically updte the the data in this
+
+
+
+States List (fixed):
+
+Andhra Pradesh, Arunachal Pradesh, Assam, Bihar, Chhattisgarh, Goa, Gujarat, Haryana, Himachal Pradesh, Jharkhand, Karnataka, Kerala, Madhya Pradesh, Maharashtra, Manipur, Meghalaya, Mizoram, Nagaland, Odisha, Punjab, Rajasthan, Sikkim, Tamil Nadu, Telangana, Tripura, Uttar Pradesh, Uttarakhand, West Bengal.
+ if possible create a model or any related in the states list for more security for states
+
+
+
+Charts & Real-time Updates:
+
+
+
+All three charts (Pie, Bar, Line) should be displayed together in a single component.
+
+
+
+Data should update dynamically whenever user or admin modifies census data.
+
+
+
+Implementation Requirements:
+
+
+
+Use Angular 15 only.
+
+
+
+Provide complete, production-ready code (frontend + JSON-server setup).
+
+
+
+Include detailed comments in the code for better understanding.
+
+
+
+Maintain a modular structure (separate modules for Admin, User, Shared, and Chart components).
+
+
+
+Use PrimeNG components for forms, tables, dropdowns, dialogs, and notifications.
+
+
+
+➡️ Deliver the full working Angular project code with explanations in comments, including setup steps for both Angular and JSON-server
+
+
+
+

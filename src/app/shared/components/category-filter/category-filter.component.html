@@ -1,0 +1,12 @@
+<div class="category-filter">
+  <h3>Categories</h3>
+  <ul class="category-list">
+    <li *ngFor="let category of categories" [class.active]="selectedCategory === category.name"
+      (click)="onCategoryChange(category.name)">
+      {{ category.name }}
+    </li>
+  </ul>
+  <button class="clear-filter-btn" *ngIf="selectedCategory" (click)="clearFilter()">
+    Clear Filter
+  </button>
+</div>

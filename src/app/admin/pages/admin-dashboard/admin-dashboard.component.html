@@ -1,0 +1,41 @@
+<div class="admin-dashboard">
+  <h1>Dashboard</h1>
+
+  <div class="stats-grid">
+    <a routerLink="/admin/users" class="stat-card link-card">
+      <div class="icon pi pi-users"></div>
+      <div>
+        <h3>{{ totalUsers }}</h3>
+        <p>Users</p>
+      </div>
+    </a>
+
+    <a routerLink="/admin/products" class="stat-card link-card">
+      <div class="icon pi pi-box"></div>
+      <div>
+        <h3>{{ totalProducts }}</h3>
+        <p>Products</p>
+      </div>
+    </a>
+
+    <a routerLink="/admin/orders" class="stat-card link-card">
+      <div class="icon pi pi-shopping-cart"></div>
+      <div>
+        <h3>{{ totalOrders }}</h3>
+        <p>Orders</p>
+      </div>
+    </a>
+
+    <div class="stat-card">
+      <div class="icon pi pi-money-bill"></div>
+      <div>
+        <h3>{{ totalRevenue | currency:'INR' }}</h3>
+        <p>Revenue</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-container">
+    <p-chart type="line" [data]="chartData" [options]="chartOptions"></p-chart>
+  </div>
+</div>

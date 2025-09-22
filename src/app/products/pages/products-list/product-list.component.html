@@ -1,0 +1,37 @@
+<div class="products-grid">
+  <div *ngFor="let product of filteredProducts" class="product-card">
+    <img [src]="product.imageUrl" [alt]="product.name">
+    <div class="product-info">
+      <h3>{{ product.name }}</h3>
+
+      <div class="brand" *ngIf="product.brand">{{ product.brand }}</div>
+
+      <div class="price-section">
+        <span class="price" [class.discounted]="product.discount">
+          ${{ calculatePrice(product) }}
+        </span>
+        <span *ngIf="product.discount" class="original-price">
+          ${{ product.price }}
+        </span>
+        <span *ngIf="product.discount" class="discount-badge">
+          {{ product.discount }}% OFF
+        </span>
+      </div>
+
+      <div class="rating">
+        <span *ngFor="let star of [1,2,3,4,5]">
+          {{ star <= product.rating ? '★' : '☆' }} </span>
+            ({{ product.rating }})
+      </div>
+
+      <div class="stock" [class.low-stock]="product.stock < 10">
+        {{ product.stock }} in stock
+      </div>
+
+      <!-- ✅ View Button -->
+      <button class="view-button" [routerLink]="['/user/products', product.id]">
+        View
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+.badge-pending {
+  background-color: #ffc107 !important;
+  color: #212529;
+}
+
+.badge-processing {
+  background-color: #17a2b8 !important;
+  color: #fff;
+}
+
+.badge-shipped {
+  background-color: #6f42c1 !important;
+  color: #fff;
+}
+
+.badge-delivered {
+  background-color: #28a745 !important;
+  color: #fff;
+}
+
+.badge-cancelled {
+  background-color: #dc3545 !important;
+  color: #fff;
+}

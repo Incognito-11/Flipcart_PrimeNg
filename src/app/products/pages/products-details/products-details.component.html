@@ -1,0 +1,48 @@
+<div class="product-details-container">
+  <div *ngIf="loading" class="loading">Loading product details...</div>
+
+  <div *ngIf="product as p" class="product-details">
+    <div class="product-image">
+      <img [src]="p.imageUrl" [alt]="p.name">
+    </div>
+
+    <div class="product-info">
+      <h1>{{ p.name }}</h1>
+
+      <div *ngIf="p.brand" class="brand">{{ p.brand }}</div>
+
+      <div class="rating">
+        <span *ngFor="let star of [1,2,3,4,5]">
+          {{ star <= p.rating ? '★' : '☆' }}
+        </span>
+        ({{ p.rating }})
+      </div>
+
+      <div class="price-section">
+        <span class="price" [class.discounted]="p.discount">
+          ${{ calculatePrice()}}
+        </span>
+        <span *ngIf="p.discount" class="original-price">
+          ${{ p.price }}
+        </span>
+        <span *ngIf="p.discount" class="discount-badge">
+          {{ p.discount }}% OFF
+        </span>
+      </div>
+
+      <div class="stock" [class.low-stock]="p.stock < 10">
+        {{ p.stock }} in stock
+      </div>
+
+      <p class="description">{{ p.description }}</p>
+
+      <div class="quantity-selector">
+        <button (click)="decreaseQuantity()">-</button>
+        <span>{{ quantity }}</span>
+        <button (click)="increaseQuantity()">+</button>
+      </div>
+
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </div>
+</div>

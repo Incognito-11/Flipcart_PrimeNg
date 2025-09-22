@@ -1,0 +1,56 @@
+<div class="order-management">
+  <h2>Order Management</h2>
+
+  <!-- PrimeNG Table displaying list of orders -->
+  <p-table [value]="orders" [loading]="loading" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[5, 10, 25]"
+    responsiveLayout="scroll">
+    <!-- Table Header -->
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Order ID</th>
+        <th>Customer</th>
+        <th>Date</th>
+        <th>Items</th>
+        <th>Total</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+
+    <!-- Table Body -->
+    <ng-template pTemplate="body" let-order>
+      <tr>
+        <td>#{{ order.id }}</td>
+        <td>{{ order.user?.username }}</td>
+        <td>{{ order.orderDate | date: 'mediumDate' }}</td>
+        <td>{{ order.items?.length }}</td>
+        <td>{{ order.totalAmount | currency: 'INR' }}</td>
+
+        <!-- Status dropdown with enum-based options -->
+        <td>
+          <p-dropdown [options]="statusOptions" [(ngModel)]="order.status" (onChange)="updateOrderStatus(order)"
+            [styleClass]="'p-dropdown-sm ' + getStatusBadgeClass(order.status)"
+            placeholder="Select Status"></p-dropdown>
+        </td>
+
+        <!-- Action buttons: view (optional) and delete -->
+        <td>
+          <!-- View button (can be wired later) -->
+          <button pButton icon="pi pi-eye" class="p-button-rounded p-button-info p-button-text mr-2"
+            title="View Order"></button>
+
+          <!-- Delete button with confirmation -->
+          <button pButton icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-text" title="Delete Order"
+            (click)="confirmDelete(order)"></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <!-- Toast messages for success/error -->
+  <p-toast></p-toast>
+
+  <!-- Confirmation dialog for delete action -->
+  <p-confirmDialog></p-confirmDialog>
+</div>

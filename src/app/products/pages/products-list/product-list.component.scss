@@ -1,0 +1,110 @@
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    background: #f9f9f9;
+    border-bottom: 1px solid #eee;
+  }
+
+  .product-info {
+    padding: 1rem;
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0 0 0.5rem;
+    }
+
+    .brand {
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-section {
+      margin: 0.5rem 0;
+
+      .price {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #28a745;
+
+        &.discounted {
+          color: #e53935;
+        }
+      }
+
+      .original-price {
+        text-decoration: line-through;
+        color: #999;
+        margin-left: 0.5rem;
+        font-size: 0.95rem;
+      }
+
+      .discount-badge {
+        background-color: #ff5252;
+        color: white;
+        font-size: 0.75rem;
+        padding: 0.2rem 0.5rem;
+        border-radius: 5px;
+        margin-left: 0.5rem;
+      }
+    }
+
+    .rating {
+      color: #fbc02d;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+
+      span {
+        margin-right: 2px;
+      }
+    }
+
+    .stock {
+      font-size: 0.85rem;
+      color: #4caf50;
+
+      &.low-stock {
+        color: #e53935;
+        font-weight: 600;
+      }
+    }
+
+    .view-button {
+      margin-top: 1rem;
+      width: 100%;
+      background-color: #007bff;
+      color: white;
+      padding: 0.6rem;
+      font-size: 0.95rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+}

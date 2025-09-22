@@ -1,0 +1,59 @@
+<div class="user-profile">
+  <h1>My Profile</h1>
+
+  <div class="loading-spinner" *ngIf="loading">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
+
+  <form [formGroup]="profileForm" (ngSubmit)="saveProfile()" *ngIf="!loading">
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input id="firstName" type="text" pInputText formControlName="firstName">
+        <small class="p-error" *ngIf="profileForm.get('firstName')?.invalid && profileForm.get('firstName')?.touched">
+          First name is required
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input id="lastName" type="text" pInputText formControlName="lastName">
+        <small class="p-error" *ngIf="profileForm.get('lastName')?.invalid && profileForm.get('lastName')?.touched">
+          Last name is required
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" type="email" pInputText formControlName="email">
+        <small class="p-error" *ngIf="profileForm.get('email')?.invalid && profileForm.get('email')?.touched">
+          Valid email is required
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input id="phone" type="tel" pInputText formControlName="phone">
+        <small class="p-error" *ngIf="profileForm.get('phone')?.invalid && profileForm.get('phone')?.touched">
+          10 digit phone number required
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <p-dropdown id="gender" [options]="genderOptions" formControlName="gender"
+          placeholder="Select Gender"></p-dropdown>
+      </div>
+
+      <div class="form-group">
+        <label for="birthDate">Date of Birth</label>
+        <p-calendar id="birthDate" formControlName="birthDate" [showIcon]="true" dateFormat="dd/mm/yy"
+          [maxDate]="maxDate" [yearRange]="yearRange" placeholder="Select Date"></p-calendar>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button pButton type="submit" label="Save Changes" [disabled]="profileForm.invalid || saving"></button>
+    </div>
+  </form>
+</div>

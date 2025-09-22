@@ -1,0 +1,90 @@
+// === User Role Badge Styling (Based on your theme variables) ===
+.badge-admin {
+  background-color: var(--primary-color-dark);
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.badge-manager {
+  background-color: var(--secondary-color);
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.badge-auditor {
+  background-color: var(--warning-color);
+  color: #212529;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.badge-customer {
+  background-color: var(--text-color-secondary);
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+// === User Management Section Styling ===
+.user-management {
+  padding: 1.5rem;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+  }
+
+  ::ng-deep .p-table {
+    border: 1px solid var(--surface-border);
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+    .p-datatable-thead > tr > th {
+      background-color: var(--surface-card);
+      font-weight: 600;
+      padding: 0.75rem;
+      color: var(--text-color);
+    }
+
+    .p-datatable-tbody > tr > td {
+      padding: 0.75rem;
+      vertical-align: middle;
+      color: var(--text-color);
+    }
+  }
+
+  ::ng-deep .p-button-danger.p-button-text {
+    color: var(--danger-color);
+
+    &:hover {
+      background-color: rgba(239, 68, 68, 0.1);
+    }
+  }
+}
+
+// === Responsive Adjustments ===
+@media (max-width: 768px) {
+  .user-management {
+    padding: 1rem;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    ::ng-deep .p-table .p-datatable-thead > tr > th,
+    ::ng-deep .p-table .p-datatable-tbody > tr > td {
+      padding: 0.5rem;
+    }
+  }
+}

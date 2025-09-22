@@ -1,0 +1,76 @@
+<div class="user-dashboard">
+  <div class="header">
+    <h1>Welcome, {{ username }}</h1>
+    <div class="user-nav">
+      <button pButton label="My Profile" icon="pi pi-user" [routerLink]="['/user/profile']"
+        class="p-button-sm p-button-secondary"></button>
+      <button pButton label="My Orders" icon="pi pi-shopping-bag" [routerLink]="['/user/orders']"
+        class="p-button-sm p-button-secondary"></button>
+      <button pButton label="Address Book" icon="pi pi-book" [routerLink]="['/user/addresses']"
+        class="p-button-sm p-button-secondary"></button>
+      <button pButton label="Go to Products" icon="pi pi-th-large" [routerLink]="['/user/products']"
+        class="p-button-sm p-button-success"></button>
+      <button pButton label="Logout" icon="pi pi-sign-out" (click)="logout()"
+        class="p-button-sm p-button-danger"></button>
+    </div>
+  </div>
+
+  <div class="loading-spinner" *ngIf="loading">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
+
+  <div class="stats-grid" *ngIf="!loading">
+    <div class="stat-card">
+      <div class="stat-icon"><i class="pi pi-shopping-cart"></i></div>
+      <div class="stat-content">
+        <h3>{{ userStats.totalOrders || 0 }}</h3>
+        <p>Total Orders</p>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon"><i class="pi pi-star"></i></div>
+      <div class="stat-content">
+        <h3>{{ userStats.wishlistItems || 0 }}</h3>
+        <p>Wishlist Items</p>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon"><i class="pi pi-map-marker"></i></div>
+      <div class="stat-content">
+        <h3>{{ userStats.savedAddresses || 0 }}</h3>
+        <p>Saved Addresses</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="recent-orders" *ngIf="!loading && recentOrders.length > 0">
+    <h2>Recent Orders</h2>
+    <p-table [value]="recentOrders" [responsive]="true">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Order #</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Total</th>
+          <th>Action</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-order>
+        <tr>
+          <td>{{ order.id }}</td>
+          <td>{{ order.orderDate | date }}</td>
+          <td>
+            <p-tag [severity]="getStatusSeverity(order.status)" [value]="order.status"></p-tag>
+          </td>
+          <td>{{ order.totalAmount | currency: 'INR' }}</td>
+          <td>
+            <button pButton icon="pi pi-eye" class="p-button-rounded p-button-text"
+              [routerLink]="['/user/orders', order.id]"></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+.user-orders {
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  h1 {
+    color: var(--text-color);
+    margin-bottom: 2rem;
+  }
+
+  .loading-spinner {
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+  }
+
+  .no-orders {
+    text-align: center;
+    padding: 2rem;
+
+    p {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      color: var(--text-color-secondary);
+    }
+  }
+}
